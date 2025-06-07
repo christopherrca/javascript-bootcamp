@@ -1,0 +1,24 @@
+.count {
+    font-size: 4rem;
+}
+
+.buttons button {
+    padding: 1rem;
+    margin: 0 1rem;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+.subtract {
+    background-color: red;
+}
+
+.reset {
+    background-color: gray;
+}
+
+.add {
+    background-color: lightgreen;
+}
