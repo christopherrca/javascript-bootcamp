@@ -1,25 +1,20 @@
-// Load all users
-
+// Load all Users
 
 const btn = document.querySelector("#btn");
 btn.addEventListener("click", getUsers)
 
-// CREATE Function Get Users
 
 function getUsers(e) {
-    e.preventDefault()
-    // console.log("hello")
+    e.preventDefault();
 
-    const http = new XMLHttpRequest();
-    http.open("GET", "users.json", true);
-    http.onload = function () {
-        if(this.status === 200) {
-            // console.log(this.responseText)
-            const users = JSON.parse(this.responseText)
-
+    fetch("users.json")
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data){
             let output = "";
 
-            users.forEach(function(user) {
+            data.forEach(function(user) {
                 output += `
                 <hr>
                 <ul>
@@ -35,10 +30,5 @@ function getUsers(e) {
 
 
             document.querySelector("#users").innerHTML = output;
-        }
-    }
-
-    http.send()
-
-
+        })
 }
